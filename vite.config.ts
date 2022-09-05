@@ -9,7 +9,7 @@ import { readdirSync } from 'fs';
  * @returns 
  */
 export function getPages() {
-  let pagePath = resolve(__dirname, "./src/pages");
+  let pagePath = resolve(__dirname, "./src/views");
   let files: string[] = readdirSync(pagePath);
   let pages: { [key: string]: string } = {
     main: resolve(__dirname, 'index.html')
@@ -17,7 +17,7 @@ export function getPages() {
   for (let i = 0; i < files.length; i++) {
     let key = files[i].replace('.html', '');
     if (key === 'index') continue;
-    pages[key] = resolve(__dirname, `src/pages/${files[i]}`);
+    pages[key] = resolve(__dirname, `src/views/${files[i]}`);
   }
   return pages;
 }
