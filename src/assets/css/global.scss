@@ -1,0 +1,135 @@
+/** css全局样式 */
+@import "./handel.scss";
+
+html, body, img, pre, ol, ul, li {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html, body { min-height: 100vh; }
+
+ol, ul, li { list-style: none; }
+
+/* 动画 */
+* {
+    transition:all 0.3s;
+	-moz-transition:all 0.3s; /* Firefox 4 */
+	-webkit-transition:all 0.3s; /* Safari and Chrome */
+	-o-transition:all 0.3s; /* Opera */
+}
+.dialog-delay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+.delete-dialog-body{
+    position: fixed;
+    border-radius: 10px;
+    top: 7vh;
+    width: 60vw;
+    height: 720px;
+    margin-left: 20vw;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: auto;
+    padding: 20px;
+    @include background_color("card-bg-color");
+    .form-label{
+        @include font_color("color-yellow");
+    }
+    .label-tips{
+      @include font_color("color-grey");
+    }
+    .opened-server{
+        @include font_color("color-cyan");
+    }
+    .closed-server{
+        @include font_color("color-grey");
+    }
+    .dialog-title{
+      @include font_color("color-white");
+        text-align: left;
+        border-bottom: 1px solid;
+        @include border_color("bg-color");
+        @include bottom_shadow_color("shadow-line");
+    }
+    .selected-servers{
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 10px; height: 240px;
+      .servers-item{
+        padding: 5px;
+        border-radius: 5px;
+        @include font_color("color-white");
+        @include background_color("bg-color");
+      }
+    }
+    .delete-pop{
+        display: flex; gap: 15px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+  }
+
+  @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @-webkit-keyframes scale-out-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-out-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+  }
+  .fade-enter-active{
+    -webkit-animation: scale-up-center 0.1s ease-in-out both;
+              animation: scale-up-center 0.1s ease-in-out both;
+  }
+  .fade-leave-active {
+    -webkit-animation: scale-out-center 0.1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+              animation: scale-out-center 0.1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }

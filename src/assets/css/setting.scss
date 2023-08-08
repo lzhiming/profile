@@ -1,0 +1,53 @@
+/** scss全局配置文件 */
+$themes: (
+    themeDark: ( 
+        bg-color: #081626,
+        bg-black: black,
+        card-bg-color: #0f2b44,
+        color-grey: #aeb9c3,
+        color-white: #d2ddea,
+        color-yellow: #f7af0a,
+        color-blue: #1a91e4,
+        color-cyan: #1dc7ab,
+        color-android: #a2c638,
+        color-apple: #fff,
+        
+        color-warn: #ffbe2e,
+        color-err: #f56c6c,
+        
+        base-font-size: 14px,
+        line-gery: #1c2b38,
+        shadow-line: #123351,
+        box-shadow: #0d253a,
+
+        color-gold: #FFD700,
+        color-silver: #c0c0c0,
+        color-copper: #B87333,
+        color-iron: #767778,
+    ),
+    themeWhite: ( 
+        bg-color: #f5f8fa,
+        bg-black: #fff,
+        card-bg-color: #fff,
+        color-grey: #98a3b7,
+        color-white: #000,
+        color-yellow: #3799ff,
+        color-blue: #f7af0a,
+        color-cyan: #00c878,
+        color-android: #a2c638,
+        color-apple: #000,
+        
+        color-warn: #ffbe2e,
+        color-err: #f56c6c,
+        
+        base-font-size: 14px,
+        line-gery: #e2e2e2,
+        shadow-line: #f5f8fa,
+        box-shadow: #f5f7fa,
+
+        color-gold: #FFD700,
+        color-silver: #c0c0c0,
+        color-copper: #B87333,
+        color-iron: #767778,
+    ),
+ )

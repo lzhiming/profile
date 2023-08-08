@@ -1,0 +1,55 @@
+@import "./setting.scss";
+
+//遍历主题map
+@mixin themeify {
+    @each $theme-name, $theme-map in $themes {
+        $theme-map: $theme-map !global;
+        [data-theme="#{$theme-name}"] & {
+            @content;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+@mixin background_color($color) {
+    @include themeify {
+        background-color: themed($color)!important;
+    }
+}
+@mixin font_color($color) {
+    @include themeify {
+        color: themed($color)!important;
+    }
+}
+@mixin border_color($color) {
+  @include themeify {
+      border-color: themed($color)!important;
+  }
+}
+@mixin left_shadow_color($color) {
+    @include themeify {
+        box-shadow: -2px 0px 2px themed($color)!important;
+    }
+}
+@mixin bottom_shadow_color($color) {
+    @include themeify {
+        box-shadow: 0px 2px 0px themed($color)!important;
+    }
+}
+@mixin mune_shadow($color) {
+    @include themeify {
+        box-shadow:  inset 2px 1px 1px 2px themed($color)!important;
+    }
+}
+@mixin shadow_automate($color) {
+    @include themeify {
+        box-shadow:  -2px -2px 0px themed($color), 2px 2px 0px 1px themed($color) !important;
+    }
+}
+@mixin background_image_gradient($color) {
+    @include themeify {
+        background-image: conic-gradient(transparent, themed($color), transparent 80%) !important;
+    }
+}

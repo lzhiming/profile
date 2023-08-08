@@ -1,12 +1,19 @@
 <template>
-	<Header />
+	<Header @click="selectDialog = true" />
 	<div class="pro-grid" v-show="isLoading">
 		<div v-for="pro in prolist" :key="pro" class="loading-card card-skeleton"></div>
 	</div>
-	<div class="pro-grid" v-show="!isLoading">
+	<!-- <div class="pro-grid" v-show="!isLoading">
+		<Project v-for="pro in prolist" :key="pro" :title="pro" msg="1" />
+	</div> -->
 
-		<Project v-for="pro in prolist" :key="pro" title="1" msg="Hello Vue 3 + TypeScript + Vite" />
-	</div>
+	<div class="dialog-delay" v-show="selectDialog" @click="selectDialog = !selectDialog"></div>
+    <transition name="fade">
+        <div class="delete-dialog-body" v-if="selectDialog">
+			123
+		</div>
+	</transition>
+
 	
 </template>
 
@@ -26,9 +33,11 @@ import Project from '@/components/project.vue'
 import Header from '@/components/header.vue'
 import { onMounted, ref } from 'vue';
 
-const prolist = ['1', '2', '3', '4','5', '6', '7', '8','9', '10', '11', '12']
+const prolist = ['1', '2', '3', '4','5', '6', '7', '8','9', '10']
 
 let isLoading = ref(true)
+
+let selectDialog = ref(false)
 
 onMounted(() => {
 	setTimeout(() => {
