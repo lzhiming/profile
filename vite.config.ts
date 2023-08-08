@@ -31,7 +31,8 @@ export default defineConfig({
     }
   },
   server: {
-    host: process.env.NODE_ENV !== "production"
+    host: process.env.NODE_ENV !== "production",
+    open: true
   },
   plugins: [
     changePackageVersion(),

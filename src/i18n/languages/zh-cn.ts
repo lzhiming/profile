@@ -1,4 +1,3 @@
-import zhLocale from "element-plus/lib/locale/lang/zh-cn";
 
 export const lang = {
     nav: {
@@ -8,6 +7,5 @@ export const lang = {
     },
     buttons: {
         changeLanguage: "切换语言"
-    },
-    el: zhLocale.el
+    }
 }
