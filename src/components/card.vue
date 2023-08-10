@@ -55,8 +55,8 @@ const props = withDefaults(defineProps<{
 
 .card{
     border-radius: 5px;
-    width: 200px;
-    height: 300px;
+    width: 198px;
+    height: 150px;
     box-shadow: 0px 3px 5px -2px rgb(5 0 10 / 40%);
     background-size: 100% 100%;
     animation: slide-in-elliptic-bottom-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -66,11 +66,13 @@ const props = withDefaults(defineProps<{
     }
     .desc{
         border: 1px solid green;
-        margin-top: 155px;
+        margin-top: 55px;
         width: 198px;
-        height: 100px;
-        color: white;
-        font-size: 1.2rem;
+        height: 54px;
+        color: black;
+        background-color: white;
+        font-size: 16px;
+        line-height: 18px;
         font-weight: 500;
     }
 }

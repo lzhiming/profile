@@ -3,13 +3,31 @@
 	<div class="pro-grid" v-show="isLoading">
 		<div v-for="pro in prolist" :key="pro" class="loading-card card-skeleton"></div>
 	</div>
-	<div class="pro-grid" v-show="!isLoading">
-		<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
+
+	<div class="room">
+		<div class="pro-grid" v-show="!isLoading">
+			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
+		</div>
+
+		<div class="pro-grid" v-show="!isLoading">
+			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
+		</div>
+
+		<div class="pro-grid" v-show="!isLoading">
+			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
+		</div>
+
+		<div class="pro-grid" v-show="!isLoading">
+			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
+		</div>
 	</div>
+
+
 
 	<div class="dialog-delay" v-show="selectDialog" @click="selectDialog = !selectDialog"></div>
     <transition name="fade">
         <div class="delete-dialog-body" v-if="selectDialog">
+			<Card v-for="c in cardList" :key="c.key" :icon="c.icon" :desc="c.desc" />
 			<Card v-for="c in cardList" :key="c.key" :icon="c.icon" :desc="c.desc" />
 		</div>
 	</transition>
@@ -24,6 +42,15 @@
 .main .nav { width: 200px; }
 .main .tabs { width: calc(100% - 200px); }
 
+.room{
+	display: grid;
+	padding: 30px 0px;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+	width: 100vw;
+	height: 80vh;
+}
+
 </style>
 
 <script setup lang="ts">
@@ -36,12 +63,7 @@ const prolist = [
 	{pid: 1, nickName: 'lzming', level: '黄金1', cards: ['', '', '', '']},
 	{pid: 2, nickName: '阿萨大大', level: '黄金2', cards: ['', '', '', '']},
 	{pid: 3, nickName: 'xxxx', level: '白银3', cards: ['', '', '', '']},
-	{pid: 4, nickName: '12312', level: '黄金1', cards: ['', '', '', '']},
-
-	{pid: 5, nickName: 'king', level: '王者', cards: ['', '', '', '']},
-	{pid: 6, nickName: 'zj', level: '定级', cards: ['', '', '', '']},
-	{pid: 7, nickName: '坤军', level: '定级', cards: ['', '', '', '']},
-	{pid: 8, nickName: 'who', level: '黑铁', cards: ['', '', '', '']},
+	{pid: 4, nickName: '12312', level: '黄金1', cards: ['', '', '', '']}
 ]
 
 let playerList = ref(prolist)
@@ -53,6 +75,7 @@ let isLoading = ref(true)
 let selectDialog = ref(false)
 
 onMounted(() => {
+	// isLoading.value = false
 	setTimeout(() => {
 		isLoading.value = false
 		stageType.value = 'ready'
@@ -132,7 +155,7 @@ watch(() => countDown.value, (newCount: number) => {
 function pushCard(){
 	cardList.value = []
 	let getHero = [
-		{key: 1, icon: '../src/assets/hero/1.png', desc: '1点火属性伤害'},
+		{key: 1, icon: '../src/assets/hero/1.png', desc: '战斗开始时将自己所有血量转化为攻击，加给攻击力最高的队友'},
 		{key: 2, icon: '../src/assets/hero/2.png', desc: '1点水属性伤害'},
 		{key: 3, icon: '../src/assets/hero/3.png', desc: '1点风属性伤害'},
 		{key: 4, icon: '../src/assets/hero/4.png', desc: '1点雷属性伤害'},

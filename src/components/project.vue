@@ -7,7 +7,7 @@
             </div>
             <div class="player-cards">
                 <div class="card" v-for="(card, key) in info.cards" :key="key">
-                    <el-image v-if="card" style="width: 100px; height: 100px" :src="card" fit="fill" />
+                    <el-image v-if="card" style="width: 60px; height: 60px" :src="card" fit="fill" />
                 </div>
             </div>
         </div>
@@ -32,8 +32,8 @@ $border-grey: #efeff0;
 .info-card{
     border-radius: 5px;
     border-top: 1px solid $border-grey;
-    width: 240px;
-    height: 320px;
+    width: 120px;
+    height: 160px;
     box-shadow: 0px 3px 5px -2px rgb(5 0 10 / 40%);
     background: #f7f7f7;
     background-size: 100% 100%;
@@ -53,9 +53,9 @@ $border-grey: #efeff0;
         flex-wrap: wrap;
         justify-content: space-evenly;
         .card{
-            height: 100px;
-            width: 100px;
-            margin-top: 10px;
+            height: 60px;
+            width: 60px;
+            margin-top: 5px;
             border-radius: 20px;
             background: #f7f7f7;
             box-shadow:  11px 11px 21px #d2d2d2,

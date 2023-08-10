@@ -3,12 +3,14 @@
 $bg-white: #f1f3f4;
 $bg-grey: #d8dadb;
 .pro-grid{
-	padding: 50px;
+	padding: 50px 30px 0px 30px;
 	display: flex;
 	flex-wrap:wrap;
-	gap: 40px;
+	gap: 20px;
 	content-visibility: auto;
-	contain-intrinsic-size: 100vh
+	contain-intrinsic-size: 100vh;
+  border: 1px solid greenyellow;
+  justify-content: space-between;
 }
 .loading-card{
     border-radius: 5px;
