@@ -81,7 +81,7 @@ watch(() => countDown.value, (newCount: number) => {
 			pushCard()
 		}else
 		if(stageType.value === 'round 1'){
-			getCard()
+			getCard(0)
 			countDown.value = 10
 			stageType.value = 'battle 1'
 			selectDialog.value = !selectDialog.value
@@ -93,6 +93,7 @@ watch(() => countDown.value, (newCount: number) => {
 			pushCard()
 		}else
 		if(stageType.value === 'round 2'){
+			getCard(1)
 			countDown.value = 10
 			stageType.value = 'battle 2'
 			selectDialog.value = !selectDialog.value
@@ -104,6 +105,7 @@ watch(() => countDown.value, (newCount: number) => {
 			pushCard()
 		}else
 		if(stageType.value === 'round 3'){
+			getCard(2)
 			countDown.value = 10
 			stageType.value = 'battle 3'
 			selectDialog.value = !selectDialog.value
@@ -115,6 +117,7 @@ watch(() => countDown.value, (newCount: number) => {
 			pushCard()
 		}else
 		if(stageType.value === 'round 4'){
+			getCard(3)
 			countDown.value = 10
 			stageType.value = 'battle 4'
 			selectDialog.value = !selectDialog.value
@@ -145,7 +148,7 @@ function pushCard(){
 	}
 }
 
-function getCard(){
+function getCard(cardIndex: number){
 	let getHero = [
 		{key: 1, icon: '../src/assets/hero/1.png', desc: '1点火属性伤害'},
 		{key: 2, icon: '../src/assets/hero/2.png', desc: '1点水属性伤害'},
@@ -154,11 +157,14 @@ function getCard(){
 		{key: 5, icon: '../src/assets/hero/5.png', desc: '1点无属性伤害'},
 		{key: 6, icon: '../src/assets/hero/6.png', desc: '1点护甲'},
 		{key: 7, icon: '../src/assets/hero/7.png', desc: '1点血量'},
-		{key: 8, icon: '../src/assets/hero/8.png', desc: '似乎没有用处'}
+		{key: 8, icon: '../src/assets/hero/8.png', desc: '似乎没有用处'},
+		{key: 9, icon: '../src/assets/hero/3.png', desc: '1点风属性伤害'},
+		{key: 10, icon: '../src/assets/hero/3.png', desc: '1点风属性伤害'},
+		{key: 11, icon: '../src/assets/hero/3.png', desc: '1点风属性伤害'}
 	]
 
 	for(let player of playerList.value){
-		player.cards[0] = getHero[player.pid-1].icon
+		player.cards[cardIndex] = getHero[player.pid-1].icon
 	}
 }
 
