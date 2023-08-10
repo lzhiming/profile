@@ -19,6 +19,7 @@ let locale = computed(() => (i18n.global.messages as any)![i18n.global.locale]);
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
+	width: 1260px;height: 1040px;
 }
 
 #nav { padding: 30px; }

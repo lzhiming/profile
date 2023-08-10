@@ -5,19 +5,19 @@
 	</div>
 
 	<div class="room">
-		<div class="pro-grid" v-show="!isLoading">
+		<div class="pro-grid" v-show="!isLoading" :style="bg1">
 			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
 		</div>
 
-		<div class="pro-grid" v-show="!isLoading">
+		<div class="pro-grid" v-show="!isLoading" :style="bg2">
 			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
 		</div>
 
-		<div class="pro-grid" v-show="!isLoading">
+		<div class="pro-grid" v-show="!isLoading" :style="bg3">
 			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
 		</div>
 
-		<div class="pro-grid" v-show="!isLoading">
+		<div class="pro-grid" v-show="!isLoading" :style="bg4">
 			<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
 		</div>
 	</div>
@@ -44,11 +44,10 @@
 
 .room{
 	display: grid;
-	padding: 30px 0px;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 50% 50%;
-	width: 100vw;
-	height: 80vh;
+	width: 1260px;
+	height: 1040px;
 }
 
 </style>
@@ -60,10 +59,10 @@ import Card from '@/components/card.vue'
 import { onMounted, ref, watch } from 'vue';
 
 const prolist = [
-	{pid: 1, nickName: 'lzming', level: '黄金1', cards: ['', '', '', '']},
-	{pid: 2, nickName: '阿萨大大', level: '黄金2', cards: ['', '', '', '']},
-	{pid: 3, nickName: 'xxxx', level: '白银3', cards: ['', '', '', '']},
-	{pid: 4, nickName: '12312', level: '黄金1', cards: ['', '', '', '']}
+	{pid: 1, nickName: 'lzming', level: '黄金1', heroType: '1', cards: ['', '', '', '']},
+	{pid: 2, nickName: '阿萨大大', level: '黄金2', heroType: '2', cards: ['', '', '', '']},
+	{pid: 3, nickName: 'xxxx', level: '白银3', heroType: '3', cards: ['', '', '', '']},
+	{pid: 4, nickName: '12312', level: '黄金1', heroType: '4', cards: ['', '', '', '']}
 ]
 
 let playerList = ref(prolist)
@@ -98,7 +97,7 @@ watch(() => countDown.value, (newCount: number) => {
 	if(newCount === 0){
 		console.log(stageType.value)
 		if(stageType.value === 'ready'){
-			countDown.value = 10
+			countDown.value = 1000
 			stageType.value = 'round 1'
 			selectDialog.value = !selectDialog.value
 			pushCard()
@@ -191,4 +190,9 @@ function getCard(cardIndex: number){
 	}
 }
 
+
+let bg1 = "background-image: url('../src/assets/bg/cheng.png');background-position: center;background-size: cover;"
+let bg2 = "background-image: url('../src/assets/bg/shan.png');background-position: center;background-size: cover;"
+let bg3 = "background-image: url('../src/assets/bg/tian.png');background-position: center;background-size: cover;"
+let bg4 = "background-image: url('../src/assets/bg/yz.png');background-position: center;background-size: cover;"
 </script>
