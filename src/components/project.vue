@@ -2,7 +2,14 @@
     <div class="info-card">
         <el-avatar shape="square" :size="50" :src="squareUrl" class="card-title" />
         <div class="card-players">
-
+            <div class="player-info">
+                {{ info.nickName }}   {{ info.level }}
+            </div>
+            <div class="player-cards">
+                <div class="card" v-for="(card, key) in info.cards" :key="key">
+                    <el-image v-if="card" style="width: 100px; height: 100px" :src="card" fit="fill" />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -11,8 +18,7 @@
 import { ref } from "vue";
 
 const props = withDefaults(defineProps<{
-    msg: string;
-    title: string
+    info: any
 }>(), {})
 
 const count = ref(0);
@@ -27,14 +33,34 @@ $border-grey: #efeff0;
     border-radius: 5px;
     border-top: 1px solid $border-grey;
     width: 240px;
-    height: 300px;
+    height: 320px;
     box-shadow: 0px 3px 5px -2px rgb(5 0 10 / 40%);
-    background-image: url('../assets/svg/vue.svg');
+    background: #f7f7f7;
     background-size: 100% 100%;
 }
 .card-title{
    border: 2px solid yellowgreen;
    position: relative;top: -20px;
    margin: auto;
+}
+.card-players{
+    .player-info{
+
+    }
+    .player-cards{
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .card{
+            height: 100px;
+            width: 100px;
+            margin-top: 10px;
+            border-radius: 20px;
+            background: #f7f7f7;
+            box-shadow:  11px 11px 21px #d2d2d2,
+                        -11px -11px 21px #ffffff;
+        }
+    }
 }
 </style>

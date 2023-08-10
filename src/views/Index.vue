@@ -4,7 +4,7 @@
 		<div v-for="pro in prolist" :key="pro" class="loading-card card-skeleton"></div>
 	</div>
 	<div class="pro-grid" v-show="!isLoading">
-		<Project v-for="pro in prolist" :key="pro" :title="pro" msg="1" />
+		<Project v-for="pro in playerList" :key="pro.pid" :info="pro" />
 	</div>
 
 	<div class="dialog-delay" v-show="selectDialog" @click="selectDialog = !selectDialog"></div>
@@ -32,7 +32,19 @@ import Header from '@/components/header.vue'
 import Card from '@/components/card.vue'
 import { onMounted, ref, watch } from 'vue';
 
-const prolist = ['1', '2', '3', '4','5', '6', '7', '8','9', '10']
+const prolist = [
+	{pid: 1, nickName: 'lzming', level: '黄金1', cards: ['', '', '', '']},
+	{pid: 2, nickName: '阿萨大大', level: '黄金2', cards: ['', '', '', '']},
+	{pid: 3, nickName: 'xxxx', level: '白银3', cards: ['', '', '', '']},
+	{pid: 4, nickName: '12312', level: '黄金1', cards: ['', '', '', '']},
+
+	{pid: 5, nickName: 'king', level: '王者', cards: ['', '', '', '']},
+	{pid: 6, nickName: 'zj', level: '定级', cards: ['', '', '', '']},
+	{pid: 7, nickName: '坤军', level: '定级', cards: ['', '', '', '']},
+	{pid: 8, nickName: 'who', level: '黑铁', cards: ['', '', '', '']},
+]
+
+let playerList = ref(prolist)
 
 let cardList = ref(<any>[])
 
@@ -63,12 +75,13 @@ watch(() => countDown.value, (newCount: number) => {
 	if(newCount === 0){
 		console.log(stageType.value)
 		if(stageType.value === 'ready'){
-			countDown.value = 200
+			countDown.value = 10
 			stageType.value = 'round 1'
 			selectDialog.value = !selectDialog.value
 			pushCard()
 		}else
 		if(stageType.value === 'round 1'){
+			getCard()
 			countDown.value = 10
 			stageType.value = 'battle 1'
 			selectDialog.value = !selectDialog.value
@@ -129,6 +142,23 @@ function pushCard(){
 		setTimeout(() => {
 			cardList.value.push(getHero[i-1])
 		}, i*1000)
+	}
+}
+
+function getCard(){
+	let getHero = [
+		{key: 1, icon: '../src/assets/hero/1.png', desc: '1点火属性伤害'},
+		{key: 2, icon: '../src/assets/hero/2.png', desc: '1点水属性伤害'},
+		{key: 3, icon: '../src/assets/hero/3.png', desc: '1点风属性伤害'},
+		{key: 4, icon: '../src/assets/hero/4.png', desc: '1点雷属性伤害'},
+		{key: 5, icon: '../src/assets/hero/5.png', desc: '1点无属性伤害'},
+		{key: 6, icon: '../src/assets/hero/6.png', desc: '1点护甲'},
+		{key: 7, icon: '../src/assets/hero/7.png', desc: '1点血量'},
+		{key: 8, icon: '../src/assets/hero/8.png', desc: '似乎没有用处'}
+	]
+
+	for(let player of playerList.value){
+		player.cards[0] = getHero[player.pid-1].icon
 	}
 }
 
