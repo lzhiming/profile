@@ -31,6 +31,8 @@
 			<Card v-for="c in cardList" :key="c.key" :icon="c.icon" :desc="c.desc" />
 		</div>
 	</transition>
+
+	<canvasTemp />
 </template>
 
 <style scoped lang="scss">
@@ -47,7 +49,7 @@
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 50% 50%;
 	width: 1260px;
-	height: 1040px;
+	height: 860px;
 }
 
 </style>
@@ -56,6 +58,7 @@
 import Project from '@/components/project.vue'
 import Header from '@/components/header.vue'
 import Card from '@/components/card.vue'
+import canvasTemp from '@/components/canvas.vue'
 import { onMounted, ref, watch } from 'vue';
 
 const prolist = [
@@ -74,11 +77,11 @@ let isLoading = ref(true)
 let selectDialog = ref(false)
 
 onMounted(() => {
-	// isLoading.value = false
-	setTimeout(() => {
-		isLoading.value = false
-		stageType.value = 'ready'
-	}, 2000)
+	isLoading.value = false
+	// setTimeout(() => {
+	// 	isLoading.value = false
+	// 	stageType.value = 'ready'
+	// }, 2000)
 })
 
 let countDown = ref(4)

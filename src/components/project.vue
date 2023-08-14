@@ -53,7 +53,7 @@ $border-grey: #efeff0;
 .info-card{
     border-radius: 15px;
     border: 2px solid;
-    height: 180px;
+    height: 175px;
     box-shadow: 0px 3px 5px -2px rgb(5 0 10 / 40%);
     background: #f7f7f795;
     background-size: 100% 100%;
