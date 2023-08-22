@@ -1,23 +1,13 @@
 <template>
 	<div class="header">
 		<div class="title">
-            {{ title }}
+            LZMING
         </div>
-        <div class="title">
-            {{ timing }}
-        </div>
+        <a href="https://github.com/lzhiming" target="_blank" rel="noopener noreferrer">            
+            <img class="is-icon" src="../assets/fluidicon.png" alt="">
+        </a>
 	</div>
 </template>
-<script setup lang="ts">
-import { ref } from "vue";
-
-const props = withDefaults(defineProps<{
-    title: string;
-    timing: number
-}>(), {})
-
-
-</script>
 
 <style scoped lang="scss">
     .header{

@@ -3,18 +3,15 @@
 $bg-white: #f1f3f4;
 $bg-grey: #d8dadb;
 .pro-grid{
-	padding: 30px 20px 0px 20px;
-	display: flex;
-	flex-wrap:wrap;
-	gap: 20px;
-	content-visibility: auto;
-	contain-intrinsic-size: 100vh;
-  justify-content: space-between;
+	height: 960px;
+  width: 1703px;
+  background-size: 100% 100%;
+  background-image: url('../assets/bg/bg1.jpg');
 }
 .loading-card{
     border-radius: 5px;
-    width: 240px;
-    height: 300px;
+    width: 400px;
+    height: 500px;
     box-shadow: 0px 3px 5px -2px rgb(5 0 10 / 40%);
 }
 .card-skeleton{
